@@ -2,7 +2,6 @@
 
 This microservice is responsible for calculating the amount of paint cans to paint a 4-wall room.
 
-(crd-verify-request)
 
 ## Installation
 
