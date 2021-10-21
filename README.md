@@ -7,8 +7,6 @@ This microservice is responsible for calculating the amount of paint cans to pai
 
 `yarn` is used to install and execute the micro-service
 
-Dockerfile uses the `yarn.lock` file to install all the modules in production
-
 ### Installation:
 
 ```
@@ -29,14 +27,6 @@ yarn start:dev
 yarn test
 
 ```
-
-### Build:
-
-```
-yarn build
-
-```
-
 <br/>
 <br/>
 
