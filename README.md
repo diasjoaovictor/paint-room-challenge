@@ -31,13 +31,17 @@ yarn test
 <br/>
 
 # Documentation
+```
+Swagger:
+URL.: http://localhost:3000/api-docs
+
+```
 
 # ROUTE
 
 ```
-
 METHOD.: POST
-URL.: http://localhost/paint
+URL.: http://localhost:3000/paint
 
 ```
 
