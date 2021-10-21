@@ -1,32 +1,29 @@
-
-import swaggerJSDoc from 'swagger-jsdoc';
-import swaggerUi from 'swagger-ui-express';
+import { normalize, join } from 'path';
 import { app } from './app'
 
-const swaggerDefinition = {
-  openapi: '3.0.0',
-  info: {
-    title: 'Express API for PAINT ROOM',
-    version: '1.0.0',
-    description:
-      'This is a REST API app made with Express. He calculates the amount of ink to paint a room.'
-  },
-  servers: [
-    {
-      url: 'http://localhost:3000',
-      description: 'Development server',
-    },
-  ],
-};
+const expressSwagger = require('express-swagger-generator')(app);
+
 
 const options = {
-  swaggerDefinition,
-  apis: ['./routes/*.js'],
+  swaggerDefinition: {
+    info: {
+      description: 'Paint Room',
+      title: 'Swagger',
+      version: '1.0.0',
+    },
+    host: 'localhost:3000',
+    produces: [
+      "application/json",
+    ],
+    schemes: ['http', 'https'],
+  },
+  basedir: __dirname,
+
+  files: [
+    normalize(join(__dirname, 'routes', '*.*s')),
+  ],
 };
-
-const swaggerSpec = swaggerJSDoc(options);
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+expressSwagger(options);
 
 app.use((req, res) => {
   res.status(404);
